@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 const Index = () => {
   const webDesignPackages = [
     {
+      id: "single-page",
       title: "Single Page",
       price: 100,
       description: "Perfect for landing pages",
@@ -23,6 +24,7 @@ const Index = () => {
       ]
     },
     {
+      id: "starter",
       title: "Starter",
       price: 200,
       description: "Great for small businesses",
@@ -37,6 +39,7 @@ const Index = () => {
       isPopular: true
     },
     {
+      id: "business",
       title: "Business",
       price: 300,
       description: "Complete business solution",
@@ -51,6 +54,7 @@ const Index = () => {
       ]
     },
     {
+      id: "enterprise",
       title: "Enterprise",
       price: 500,
       description: "Full-featured website",
@@ -68,6 +72,7 @@ const Index = () => {
   ];
 
   const graphicDesignPackage = {
+    id: "graphic-design",
     title: "Graphic Design",
     price: 150,
     description: "Custom design solutions",
