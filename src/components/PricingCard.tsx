@@ -2,8 +2,7 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { DollarSign, ShoppingCart } from 'lucide-react';
-import { useCart } from '@/contexts/CartContext';
+import { DollarSign } from 'lucide-react';
 
 interface PricingCardProps {
   title: string;
@@ -11,7 +10,6 @@ interface PricingCardProps {
   description: string;
   features: string[];
   isPopular?: boolean;
-  id: string; // Added for cart functionality
 }
 
 const PricingCard: React.FC<PricingCardProps> = ({
@@ -20,19 +18,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
   description,
   features,
   isPopular = false,
-  id,
 }) => {
-  const { addToCart } = useCart();
-
-  const handleAddToCart = () => {
-    addToCart({
-      id,
-      name: title,
-      price,
-      description
-    });
-  };
-
   return (
     <Card className={`card-hover bg-rebel-secondary border-rebel-muted h-full flex flex-col ${
       isPopular ? 'border-rebel-accent' : ''
@@ -62,13 +48,9 @@ const PricingCard: React.FC<PricingCardProps> = ({
           ))}
         </ul>
       </CardContent>
-      <CardFooter className="flex flex-col space-y-2">
-        <Button 
-          className="w-full bg-rebel-accent hover:bg-opacity-80"
-          onClick={handleAddToCart}
-        >
-          <ShoppingCart className="mr-2 h-4 w-4" />
-          Add to Cart
+      <CardFooter>
+        <Button className="w-full bg-rebel-accent hover:bg-opacity-80">
+          Get Started
         </Button>
       </CardFooter>
     </Card>
